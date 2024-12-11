@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PassoMobil.Views.Macs.MacPage"
+             xmlns:template="clr-namespace:PassoMobil.Views.Macs.Templates" Background="#EEF5FF"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
+             Title="">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Header için bir satır -->
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Özel Header -->
+        <Grid Grid.Row="0" BackgroundColor="#3b5998" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Sayfa Başlığı -->
+            <Label Text="Takımlar" 
+                   FontSize="24" 
+                   TextColor="White" 
+                   VerticalOptions="Center" />
+
+            <!-- Sağda Buton -->
+            <Button Grid.Column="1" 
+                    Text="Ekle" 
+                    FontSize="18" 
+                    TextColor="White" 
+                    BackgroundColor="Transparent" 
+                    Clicked="ekle_Clicked" />
+        </Grid>
+
+        <!-- İçerik Bölgesi -->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ActivityIndicator Grid.Row="0" IsRunning="True" IsVisible="False" VerticalOptions="Center" x:Name="yukleniyor" />
+            <CollectionView ItemsSource="{Binding .}" Grid.Row="1">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <template:MacTemplate />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Grid>
+</ContentPage>
