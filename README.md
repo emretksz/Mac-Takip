@@ -6,7 +6,7 @@
 - Menu tasarımı için Tabbar kullanıldı.
 - SignalR ile bağlı sunucu arasında iletişim sağlandı. 
 - **Platform Desteği:** Android
-- 
+  
 ## 🛠️ Teknolojiler
 - **.NET MAUI 8**
 - **ASP.NET Core API**
